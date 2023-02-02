@@ -4,6 +4,18 @@ import pandas as pd
 import numpy as np
 import time
 
+st.set_page_config(
+    page_title="My Streamlit Example App",
+    page_icon="🧊",
+    layout="wide",
+#    initial_sidebar_state="expanded",
+#    menu_items={
+#        'Get Help': 'https://www.extremelycoolapp.com/help',
+#        'Report a bug': "https://www.extremelycoolapp.com/bug",
+#        'About': "# This is a header. This is an *extremely* cool app!"
+#    }
+)
+
 st.subheader('Debug Area - Print Raw data')
 st.write("12345678")
 st.markdown("""---""")
@@ -195,10 +207,35 @@ st.markdown("""---""")
 
 
 """
-# Example 13 - 
-
+# Example 13 - metric
+Display a metric in big bold font, with an optional indicator of how the metric changed.
 """
 st.markdown("") # empty line
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Temperature", "70 °F", "1.2 °F")
+col2.metric("Wind", "9 mph", "-8%")
+col3.metric("Humidity", "86%", "4%")
+
+st.markdown("""---""")
+
+
+"""
+# Example 14 - st.json
+Display object or string as a pretty-printed JSON string.
+"""
+st.markdown("") # empty line
+
+st.json({
+    'foo': 'bar',
+    'baz': 'boz',
+    'stuff': [
+        'stuff 1',
+        'stuff 2',
+        'stuff 3',
+        'stuff 5',
+    ],
+})
 
 st.markdown("""---""")
 
