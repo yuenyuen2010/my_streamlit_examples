@@ -4,7 +4,9 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, date, time
 from PIL import Image
+import logging
 
+logger = logging.getLogger(__name__)
 
 st.markdown("# Page 5 🅰️")
 st.sidebar.markdown("# Page 5 🅰️")
@@ -26,6 +28,7 @@ Display a button widget.
 st.markdown("") # empty line
 
 if st.button('Say hello'):
+    logger.info("'Say hello' button clicked")
     st.write('Why hello there')
 else:
     st.write('Goodbye')
@@ -54,6 +57,7 @@ st.markdown("") # empty line
 agree = st.checkbox('I agree')
 
 if agree:
+    logger.info("User agreed")
     st.write('Great!')
 
 st.markdown("""---""")
@@ -115,6 +119,8 @@ options = st.multiselect(
     'What are your favorite colors',
     ['Green', 'Yellow', 'Red', 'Blue'],
     ['Yellow', 'Red'])
+
+logger.debug(f"Multiselect colors: {options}")
 
 st.write('You selected:', options)
 
@@ -260,6 +266,7 @@ Display a color picker widget.
 st.markdown("")  # empty line
 
 color = st.color_picker('Pick A Color', '#00f900')
+logger.debug(f"Color picked: {color}")
 st.write('The current color is', color)
 
 st.markdown("""---""")

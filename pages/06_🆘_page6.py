@@ -2,6 +2,9 @@
 import pandas
 import pandas as pd
 import streamlit as st
+import logging
+
+logger = logging.getLogger(__name__)
 
 st.markdown("# Page 6 🆘")
 st.sidebar.markdown("# Page 6 🆘")
@@ -73,6 +76,7 @@ Displays the doc string for this object.
 st.markdown("") # empty line
 
 st.help(pandas.DataFrame)
+logger.info("Displayed help for pandas.DataFrame")
 
 st.markdown("""---""")
 
