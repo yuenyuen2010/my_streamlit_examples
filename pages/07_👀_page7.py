@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 import logging
 
 logger = logging.getLogger(__name__)
@@ -14,7 +13,7 @@ st.markdown("Reference: https://docs.streamlit.io/library/api-reference/layout")
 # Forms
 Forms allow you to batch multiple widgets together so that the script only reruns when a submit button is pressed.
 """
-st.markdown("") 
+st.markdown("")
 
 with st.form("my_form"):
     st.write("Inside the form")
@@ -95,14 +94,14 @@ col1, col2 = st.columns(2)
 with col1:
     if st.button('Show Success'):
         st.success('This is a success message!', icon="✅")
-    
+
     if st.button('Show Info'):
         st.info('This is an info message', icon="ℹ️")
 
 with col2:
     if st.button('Show Warning'):
         st.warning('This is a warning message', icon="⚠️")
-    
+
     if st.button('Show Error'):
         st.error('This is an error message', icon="🚨")
 

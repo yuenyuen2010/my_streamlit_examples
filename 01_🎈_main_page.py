@@ -15,12 +15,12 @@ st.set_page_config(
     page_title="My Streamlit Example App",
     page_icon="🧊",
     layout="wide",
-#    initial_sidebar_state="expanded",
-#    menu_items={
-#        'Get Help': 'https://www.extremelycoolapp.com/help',
-#        'Report a bug': "https://www.extremelycoolapp.com/bug",
-#        'About': "# This is a header. This is an *extremely* cool app!"
-#    }
+    # initial_sidebar_state="expanded",
+    # menu_items={
+    #    'Get Help': 'https://www.extremelycoolapp.com/help',
+    #    'Report a bug': "https://www.extremelycoolapp.com/bug",
+    #    'About': "# This is a header. This is an *extremely* cool app!"
+    # }
 )
 
 st.subheader('Debug Area - Print Raw data')
@@ -36,25 +36,27 @@ st.sidebar.markdown("# Main page 🎈")
 """
 # Example 1 - Create a simple table
 Here's our first attempt at using data to create a table:
-You can also write to your app without calling any Streamlit methods. Streamlit supports "magic commands," which means you don't have to use st.write() at all.
+You can also write to your app without calling any Streamlit methods.
+Streamlit supports "magic commands," which means you don't have to use st.write() at all.
 """
 st.markdown("")
 df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40]
+    'first column': [1, 2, 3, 4],
+    'second column': [10, 20, 30, 40]
 })
 df
 
 # Or use the following code
-#st.write(pd.DataFrame({
+# st.write(pd.DataFrame({
 #    'first column': [1, 2, 3, 4],
 #    'second column': [10, 20, 30, 40]
-#}))
+# }))
 st.markdown("""---""")
 
 """
 # Example 2 - render dataframe with styler
-For example, let's create a data frame and change its formatting with a Pandas Styler object. In this example, you'll use Numpy to generate a random sample, and the st.dataframe() method to draw an interactive table.
+For example, let's create a data frame and change its formatting with a Pandas Styler object.
+In this example, you'll use Numpy to generate a random sample, and the st.dataframe() method to draw an interactive table.
 """
 st.markdown("")
 dataframe = pd.DataFrame(
@@ -78,12 +80,13 @@ st.markdown("""---""")
 
 """
 # Example 4 - Draw a line chart
-You can easily add a line chart to your app with st.line_chart(). We'll generate a random sample using Numpy and then chart it.
+You can easily add a line chart to your app with st.line_chart().
+We'll generate a random sample using Numpy and then chart it.
 """
 st.markdown("")
 chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
 
 st.line_chart(chart_data)
 st.markdown("""---""")
@@ -91,7 +94,8 @@ st.markdown("""---""")
 
 """
 # Example 5 - Plot a map
-With st.map() you can display data points on a map. Let's use Numpy to generate some sample data and plot it on a map of San Francisco.
+With st.map() you can display data points on a map.
+Let's use Numpy to generate some sample data and plot it on a map of San Francisco.
 """
 st.markdown("")
 map_data = pd.DataFrame(
@@ -104,7 +108,9 @@ st.markdown("""---""")
 
 """
 # Example 6 - Widgets - slider
-When you've got the data or model into the state that you want to explore, you can add in widgets like st.slider(), st.button() or st.selectbox(). It's really straightforward — treat widgets as variables:
+When you've got the data or model into the state that you want to explore,
+you can add in widgets like st.slider(), st.button() or st.selectbox().
+It's really straightforward — treat widgets as variables:
 """
 st.markdown("")
 x = st.slider('x')  # 👈 this is a widget
@@ -115,7 +121,9 @@ st.markdown("""---""")
 
 """
 # Example 7 - Widgets - text_input
-Every widget with a key is automatically added to Session State. For more information about Session State, its association with widget state, and its limitations, see Session State API Reference Guide.
+Every widget with a key is automatically added to Session State.
+For more information about Session State, its association with widget state, and its limitations,
+see Session State API Reference Guide.
 """
 st.markdown("")
 st.text_input("Your name", key="name")
@@ -129,13 +137,15 @@ st.markdown("""---""")
 
 """
 # Example 8 - Widgets - Chartboxes
-One use case for checkboxes is to hide or show a specific chart or section in an app. st.checkbox() takes a single argument, which is the widget label. In this sample, the checkbox is used to toggle a conditional statement.
+One use case for checkboxes is to hide or show a specific chart or section in an app.
+st.checkbox() takes a single argument, which is the widget label.
+In this sample, the checkbox is used to toggle a conditional statement.
 """
 st.markdown("")
 if st.checkbox('Show dataframe'):
     chart_data = pd.DataFrame(
-       np.random.randn(20, 3),
-       columns=['a', 'b', 'c'])
+        np.random.randn(20, 3),
+        columns=['a', 'b', 'c'])
 
     chart_data
 st.markdown("""---""")
@@ -143,17 +153,18 @@ st.markdown("""---""")
 
 """
 # Example 9 - Widgets - Selectbox for options
-Use st.selectbox to choose from a series. You can write in the options you want, or pass through an array or data frame column.
+Use st.selectbox to choose from a series.
+You can write in the options you want, or pass through an array or data frame column.
 """
 st.markdown("")
 df = pd.DataFrame({
     'first column': [1, 2, 3, 4],
     'second column': [10, 20, 30, 40]
-    })
+})
 
 option = st.selectbox(
     'Which number do you like best?',
-     df['first column'])
+    df['first column'])
 
 logger.info(f"Selectbox option chosen: {option}")
 
@@ -163,7 +174,8 @@ st.markdown("""---""")
 
 """
 # Example 10 - Layout - Add selectbox and slider to sidebar (Please check sidebar)
-For example, if you want to add a selectbox and a slider to a sidebar, use st.sidebar.slider and st.sidebar.selectbox instead of st.slider and st.selectbox:
+For example, if you want to add a selectbox and a slider to a sidebar,
+use st.sidebar.slider and st.sidebar.selectbox instead of st.slider and st.selectbox:
 """
 st.markdown("")
 # Add a selectbox to the sidebar:
@@ -182,9 +194,10 @@ st.markdown("""---""")
 
 """
 # Example 11 - Layout - Columns
-Beyond the sidebar, Streamlit offers several other ways to control the layout of your app. st.columns lets you place widgets side-by-side, and st.expander lets you conserve space by hiding away large content.
+Beyond the sidebar, Streamlit offers several other ways to control the layout of your app.
+st.columns lets you place widgets side-by-side, and st.expander lets you conserve space by hiding away large content.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 left_column, right_column = st.columns(2)
 # You can use a column just like st.sidebar:
 left_column.button('Press me!')
@@ -202,7 +215,7 @@ st.markdown("""---""")
 # Example 12 - Show progress
 Now, let's create a progress bar:
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 'Starting a long computation...'
 
 # Add a placeholder
@@ -210,10 +223,10 @@ latest_iteration = st.empty()
 bar = st.progress(0)
 
 for i in range(20):
-  # Update the progress bar with each iteration.
-  latest_iteration.text(f'Iteration {i+1}')
-  bar.progress(i + 1)
-  time.sleep(0.1)
+    # Update the progress bar with each iteration.
+    latest_iteration.text(f'Iteration {i+1}')
+    bar.progress(i + 1)
+    time.sleep(0.1)
 
 '...and now we\'re done!'
 st.markdown("""---""")
@@ -223,7 +236,7 @@ st.markdown("""---""")
 # Example 13 - metric
 Display a metric in big bold font, with an optional indicator of how the metric changed.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Temperature", "70 °F", "1.2 °F")
@@ -237,7 +250,7 @@ st.markdown("""---""")
 # Example 14 - st.json
 Display object or string as a pretty-printed JSON string.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 st.json({
     'foo': 'bar',
@@ -251,7 +264,3 @@ st.json({
 })
 
 st.markdown("""---""")
-
-
-
-

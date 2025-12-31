@@ -1,6 +1,6 @@
 # Contents of ~/my_app/pages/03_🎉_page3.py
 import streamlit as st
-import pandas as pd
+# import pandas as pd
 import numpy as np
 from datetime import datetime, date, time
 from PIL import Image
@@ -17,7 +17,7 @@ st.markdown("Reference: https://docs.streamlit.io/library/api-reference/widgets"
 # Input widgets
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 st.markdown("""---""")
 
 
@@ -25,7 +25,7 @@ st.markdown("""---""")
 # Button
 Display a button widget.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 if st.button('Say hello'):
     logger.info("'Say hello' button clicked")
@@ -40,7 +40,7 @@ st.markdown("""---""")
 # Download Button
 Display a download button widget.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 text_contents = '''This is some text'''
 st.download_button('Download some text', text_contents)
@@ -52,7 +52,7 @@ st.markdown("""---""")
 # Checkbox
 Display a checkbox widget.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 agree = st.checkbox('I agree')
 
@@ -67,7 +67,7 @@ st.markdown("""---""")
 # Radio Button
 Display a radio button.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 # Store the initial value of widgets in session state
 if "visibility" not in st.session_state:
@@ -89,6 +89,7 @@ with col2:
         label_visibility=st.session_state.visibility,
         disabled=st.session_state.disabled,
         horizontal=st.session_state.horizontal,
+        horizontal=st.session_state.horizontal,
     )
 
 st.markdown("""---""")
@@ -98,7 +99,7 @@ st.markdown("""---""")
 # SelectBox
 Display a select widget.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 option = st.selectbox(
     'How would you like to be contacted?',
@@ -196,7 +197,6 @@ txt = st.text_area('Text to analyze', '''
     ''')
 
 st.markdown("""---""")
-
 
 
 """
