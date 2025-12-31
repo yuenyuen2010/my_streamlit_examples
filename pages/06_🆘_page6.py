@@ -15,7 +15,7 @@ st.markdown("Reference: https://docs.streamlit.io/library/api-reference/utilitie
 # Input widgets
 With widgets, Streamlit allows you to bake interactivity directly into your apps with buttons, sliders, text inputs, and more.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 st.markdown("""---""")
 
 
@@ -23,7 +23,7 @@ st.markdown("""---""")
 # Echo
 Use in a `with` block to draw some code on the app, then execute it.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 with st.echo():
     st.write('This code will be printed')
@@ -35,7 +35,7 @@ st.markdown("""---""")
 # Experimental show
 Write arguments and argument names to your app for debugging purposes.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 dataframe = pd.DataFrame({
     'first column': [1, 2, 3, 4],
@@ -50,7 +50,7 @@ st.markdown("""---""")
 # Experimental set query params
 Set the query parameters that are shown in the browser's URL bar.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 st.experimental_set_query_params(
     show_map=True,
@@ -61,7 +61,7 @@ st.markdown("""---""")
 
 # """
 # # Experimental Get Query Params
-# Return the query parameters that is currently showing in the browser's URL bar.
+# # Return the query parameters that is currently showing in the browser's URL bar.
 # """
 # st.markdown("") # empty line
 #
@@ -73,7 +73,7 @@ st.markdown("""---""")
 # Help
 Displays the doc string for this object.
 """
-st.markdown("") # empty line
+st.markdown("")  # empty line
 
 st.help(pandas.DataFrame)
 logger.info("Displayed help for pandas.DataFrame")
