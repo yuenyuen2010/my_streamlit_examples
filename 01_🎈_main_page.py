@@ -3,6 +3,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import time
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+logger.info("Main page loaded")
 
 st.set_page_config(
     page_title="My Streamlit Example App",
@@ -101,6 +108,7 @@ When you've got the data or model into the state that you want to explore, you c
 """
 st.markdown("")
 x = st.slider('x')  # 👈 this is a widget
+logger.debug(f"Slider x value changed to: {x}")
 st.write(x, 'squared is', x * x)
 st.markdown("""---""")
 
@@ -111,6 +119,9 @@ Every widget with a key is automatically added to Session State. For more inform
 """
 st.markdown("")
 st.text_input("Your name", key="name")
+if st.session_state.name:
+    logger.debug(f"Name entered: {st.session_state.name}")
+
 # You can access the value at any point with:
 st.session_state.name
 st.markdown("""---""")
@@ -143,6 +154,8 @@ df = pd.DataFrame({
 option = st.selectbox(
     'Which number do you like best?',
      df['first column'])
+
+logger.info(f"Selectbox option chosen: {option}")
 
 'You selected: ', option
 st.markdown("""---""")

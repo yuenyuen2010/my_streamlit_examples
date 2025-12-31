@@ -2,6 +2,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import logging
+
+logger = logging.getLogger(__name__)
 
 st.markdown("# Page 2 ❄️")
 st.sidebar.markdown("# Page 2 ❄️")
@@ -14,6 +17,7 @@ DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
 
 @st.cache
 def load_data(nrows):
+    logger.info(f"Loading data with {nrows} rows")
     data = pd.read_csv(DATA_URL, nrows=nrows)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
@@ -34,6 +38,7 @@ st.bar_chart(hist_values)
 
 # Some number in the range 0-23
 hour_to_filter = st.slider('hour', 0, 23, 17)
+logger.debug(f"Selected hour: {hour_to_filter}")
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 
 st.subheader('Map of all pickups at %s:00' % hour_to_filter)
